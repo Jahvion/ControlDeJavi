@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Coca Cola 500ml",
+      "category": "Gaseosas",
+      "expiration_date": "2025-11-20",
+      "created_at": "2025-11-06T18:58:54.114310"
+    },
+    {
+      "id": 2,
+      "name": "cadbury",
+      "category": "Chocolates",
+      "expiration_date": "2025-11-07",
+      "created_at": "2025-11-06T22:26:38.729764"
+    },
+    {
+      "id": 3,
+      "name": "coca peque\u00f1a",
+      "category": "Gaseosas",
+      "expiration_date": "2025-11-07",
+      "created_at": "2025-11-06T22:32:44.841548"
+    }
+  ],
+  "next_id": 4
+}
