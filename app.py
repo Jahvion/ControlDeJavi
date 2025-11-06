@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from datetime import datetime, date
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -203,6 +203,20 @@ def _start_scheduler():
   sched.add_job(_send_daily_notification, "cron", hour=NOTIFY_HOUR, minute=0)
   sched.start()
   return sched
+
+
+
+
+# ---- Frontend static serving ----
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve_frontend(path):
+  root = "frontend"
+  # If request matches an existing file (css/js/img), serve it
+  if path and os.path.exists(os.path.join(root, path)):
+    return send_from_directory(root, path)
+  # Otherwise, serve index.html
+  return send_from_directory(root, "index.html")
 
 
 # --- Inicio ---
